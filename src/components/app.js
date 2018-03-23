@@ -1,25 +1,32 @@
 import React, {Component} from 'react';
 import SearchBar from './search_bar';
-import tvMazeClient, {filter} from './TvMaze';
-import SearchResult from'./search-result';
+import tvMazeClient from './TvMaze';
+import SearchResult from './search-result';
 
 export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            item: "",
-            searchResult: ['test', 'bla']
+            searchResult: []
         };
+    }
+
+    updateSearchResult(newResult) {
+        let names = [];
+
+        newResult.forEach(function (item) {
+            names.push(item.show.name);
+        });
+
+        this.setState({searchResult: names})
     }
 
     render() {
         return (
             <div>
-                <SearchBar onSearch={(item) => tvMazeClient(item)}/>
+                <SearchBar onSearch={(item) => tvMazeClient(item, (foo) => this.updateSearchResult(foo))}/>
                 <SearchResult searchResult={this.state.searchResult}/>
             </div>
         );
     }
 }
-
-
