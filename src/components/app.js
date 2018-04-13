@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import SearchBar from './search_bar';
 import tvMazeClient from './TvMaze';
 import SearchResult from './search-result';
 
-export default class App extends Component {
+export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
