@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class SearchBar extends Component {
+export default class SearchBar extends React.Component {
     render() {
         return (
             <div>
-                <input
-                    onChange={event => this.props.onSearch(event.target.value)}
+                <input autoFocus={true}
+                       onChange={event => this.props.onSearch(event.target.value)}
                 />
             </div>
         );
