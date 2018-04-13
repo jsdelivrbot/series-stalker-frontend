@@ -12,13 +12,13 @@ export default class App extends React.Component {
     }
 
     updateSearchResult(newResult) {
-        let names = [];
+        let shows = [];
 
         newResult.forEach(function (item) {
-            names.push(item.show.name);
+            shows.push(item.show);
         });
 
-        this.setState({searchResult: names})
+        this.setState({searchResult: shows})
     }
 
     render() {
